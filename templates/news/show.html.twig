@@ -5,35 +5,6 @@
 {% block body %}
     <h1>News</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ news.id }}</td>
-            </tr>
-            <tr>
-                <th>TitleNews</th>
-                <td>{{ news.titleNews }}</td>
-            </tr>
-            <tr>
-                <th>ContentNews</th>
-                <td>{{ news.contentNews }}</td>
-            </tr>
-            <tr>
-                <th>ImgNews</th>
-                <td>{{ news.imgNews }}</td>
-            </tr>
-            <tr>
-                <th>CreationDateNews</th>
-                <td>{{ news.creationDateNews ? news.creationDateNews|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>ModificationDateNews</th>
-                <td>{{ news.modificationDateNews ? news.modificationDateNews|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
     <div class="container p-5 BGarticle">
         <img class="img-fluid align-items mb-5" src="{{ asset('uploads/photos/' ~ news.imgNews) }}" width="900"></td>
         <h1 class="">

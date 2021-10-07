@@ -55,6 +55,11 @@ class CommentsNews
      */
     private $replies;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="commentsNews")
+     */
+    private $users;
+
     public function __construct()
     {
         $this->replies = new ArrayCollection();
@@ -163,6 +168,18 @@ class CommentsNews
                 $reply->setParent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUsers(): ?Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?Users $users): self
+    {
+        $this->users = $users;
 
         return $this;
     }

@@ -71,9 +71,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $News;
 
+    /**
+     * @ORM\OneToMany(targetEntity=CommentsNews::class, mappedBy="users")
+     */
+    private $commentsNews;
+
     public function __construct()
     {
         $this->News = new ArrayCollection();
+        $this->commentsNews = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -237,6 +243,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($news->getUsers() === $this) {
                 $news->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CommentsNews[]
+     */
+    public function getCommentsNews(): Collection
+    {
+        return $this->commentsNews;
+    }
+
+    public function addCommentsNews(CommentsNews $commentsNews): self
+    {
+        if (!$this->commentsNews->contains($commentsNews)) {
+            $this->commentsNews[] = $commentsNews;
+            $commentsNews->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentsNews(CommentsNews $commentsNews): self
+    {
+        if ($this->commentsNews->removeElement($commentsNews)) {
+            // set the owning side to null (unless already changed)
+            if ($commentsNews->getUsers() === $this) {
+                $commentsNews->setUsers(null);
             }
         }
 

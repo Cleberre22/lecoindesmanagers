@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 06 oct. 2021 à 10:08
+-- Généré le : jeu. 07 oct. 2021 à 15:09
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -36,9 +36,11 @@ CREATE TABLE IF NOT EXISTS `comments_news` (
   `active` tinyint(1) NOT NULL,
   `created_at_comment_news` datetime NOT NULL,
   `rgpd` tinyint(1) NOT NULL,
+  `users_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_9902B4F7B5A459A0` (`news_id`),
-  KEY `IDX_9902B4F7727ACA70` (`parent_id`)
+  KEY `IDX_9902B4F7727ACA70` (`parent_id`),
+  KEY `IDX_9902B4F767B3B43D` (`users_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -145,6 +147,7 @@ INSERT INTO `users` (`id`, `email`, `roles`, `password`, `is_verified`, `pseudo`
 -- Contraintes pour la table `comments_news`
 --
 ALTER TABLE `comments_news`
+  ADD CONSTRAINT `FK_9902B4F767B3B43D` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `FK_9902B4F7727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `comments_news` (`id`),
   ADD CONSTRAINT `FK_9902B4F7B5A459A0` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`);
 
