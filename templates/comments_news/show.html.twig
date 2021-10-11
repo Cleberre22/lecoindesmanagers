@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CommentsNews{% endblock %}
+
+{% block body %}
+    <h1>CommentsNews</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ comments_news.id }}</td>
+            </tr>
+            <tr>
+                <th>ContentCommentNews</th>
+                <td>{{ comments_news.contentCommentNews }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ comments_news.active ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAtCommentNews</th>
+                <td>{{ comments_news.createdAtCommentNews ? comments_news.createdAtCommentNews|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rgpd</th>
+                <td>{{ comments_news.rgpd ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('comments_news_index') }}">back to list</a>
+
+    <a href="{{ path('comments_news_edit', {'id': comments_news.id}) }}">edit</a>
+
+    {{ include('comments_news/_delete_form.html.twig') }}
+{% endblock %}

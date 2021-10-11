@@ -2,25 +2,24 @@
 
 namespace App\Form;
 
+use App\Entity\News;
 use App\Entity\CommentsNews;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class CommentsNewsType extends AbstractType
+class CommentsNews1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-
             ->add('contentCommentNews')
             ->add('rgpd')
-            ->add('parentid', HiddenType::class, [
-                'mapped' => false
-            ])
-            ->add('envoyer', SubmitType::class)
+            ->add('news', EntityType::class, [
+                 'class' => News::class,
+                 'choice_label' => 'titleNews',
+                 ])
         ;
     }
 

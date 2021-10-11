@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\NewsRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Users;
+use App\Entity\CommentsNews;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\NewsRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=NewsRepository::class)
@@ -165,4 +167,6 @@ class News
 
         return $this;
     }
+
+
 }

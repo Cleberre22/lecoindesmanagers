@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\News;
+use App\Entity\CommentsNews;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\Collection;

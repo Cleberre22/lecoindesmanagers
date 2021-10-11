@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CommentsNews{% endblock %}
+
+{% block body %}
+    <h1>Edit CommentsNews</h1>
+
+    {{ include('comments_news/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('comments_news_index') }}">back to list</a>
+
+    {{ include('comments_news/_delete_form.html.twig') }}
+{% endblock %}

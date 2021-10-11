@@ -3,6 +3,10 @@
 {% block title %}News{% endblock %}
 
 {% block body %}
+<section style="height: 100px;">
+</section>
+
+<div class="container">
     <h1>News</h1>
 
     <div class="container p-5 BGarticle">
@@ -13,12 +17,20 @@
         {{ news.contentNews|raw }}
         Mise à jour le {{ news.modificationDateNews ? news.modificationDateNews|date('d-m-Y à H:i') : '' }}<br />
         {{ news.users.pseudo }}
-    
     </div>
+
+    <div>
+        <h2>Ajouter un commentaire</h2>
+        <a href="{{ path('comments_news_new') }}">Ajouter un commentaire</a>
+        <h2>Liste des commentaires</h2>
+    </div>
+
 
     <a href="{{ path('news_index') }}">back to list</a>
 
     <a href="{{ path('news_edit', {'id': news.id}) }}">edit</a>
 
     {{ include('news/_delete_form.html.twig') }}
+</div>
+    
 {% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CommentsNews index{% endblock %}
+
+{% block body %}
+    <h1>CommentsNews index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ContentCommentNews</th>
+                <th>Active</th>
+                <th>CreatedAtCommentNews</th>
+                <th>Rgpd</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comments_news in comments_news %}
+            <tr>
+                <td>{{ comments_news.id }}</td>
+                <td>{{ comments_news.contentCommentNews }}</td>
+                <td>{{ comments_news.active ? 'Yes' : 'No' }}</td>
+                <td>{{ comments_news.createdAtCommentNews ? comments_news.createdAtCommentNews|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ comments_news.rgpd ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('comments_news_show', {'id': comments_news.id}) }}">show</a>
+                    <a href="{{ path('comments_news_edit', {'id': comments_news.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('comments_news_new') }}">Create new</a>
+{% endblock %}

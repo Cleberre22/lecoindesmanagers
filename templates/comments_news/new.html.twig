@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CommentsNews{% endblock %}
+
+{% block body %}
+    <h1>Create new CommentsNews</h1>
+
+    {{ include('comments_news/_form.html.twig') }}
+
+    <a href="{{ path('comments_news_index') }}">back to list</a>
+{% endblock %}
