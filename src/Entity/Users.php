@@ -77,10 +77,16 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $commentsNews;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PostForum::class, mappedBy="users", orphanRemoval=true)
+     */
+    private $postForums;
+
     public function __construct()
     {
         $this->News = new ArrayCollection();
         $this->commentsNews = new ArrayCollection();
+        $this->postForums = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -274,6 +280,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($commentsNews->getUsers() === $this) {
                 $commentsNews->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PostForum[]
+     */
+    public function getPostForums(): Collection
+    {
+        return $this->postForums;
+    }
+
+    public function addPostForum(PostForum $postForum): self
+    {
+        if (!$this->postForums->contains($postForum)) {
+            $this->postForums[] = $postForum;
+            $postForum->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostForum(PostForum $postForum): self
+    {
+        if ($this->postForums->removeElement($postForum)) {
+            // set the owning side to null (unless already changed)
+            if ($postForum->getUsers() === $this) {
+                $postForum->setUsers(null);
             }
         }
 

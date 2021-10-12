@@ -14,7 +14,7 @@ class CommentsNews1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('contentCommentNews')
+            ->add('contentCommentNews') 
             ->add('rgpd')
             ->add('news', EntityType::class, [
                  'class' => News::class,

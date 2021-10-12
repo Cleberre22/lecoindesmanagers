@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Users;
 use App\Entity\CommentsNews;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use App\Repository\NewsRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -25,6 +26,12 @@ class News
      * @ORM\Column(type="string", length=255)
      */
     private $titleNews;
+
+    /**
+     * @Gedmo\Slug(fields={"titleNews"})
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     /**
      * @ORM\Column(type="text")
