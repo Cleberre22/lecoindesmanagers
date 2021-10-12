@@ -6,6 +6,7 @@ use App\Repository\CategoryForumRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryForumRepository::class)
@@ -20,11 +21,13 @@ class CategoryForum
     private $id;
 
     /**
+     
      * @ORM\Column(type="string", length=100)
      */
     private $nameCategory;
 
     /**
+     * @Gedmo\Slug(fields={"nameCategory"})
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
@@ -70,13 +73,6 @@ class CategoryForum
     public function getSlug(): ?string
     {
         return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
     }
 
     public function getParent(): ?self

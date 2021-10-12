@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 07 oct. 2021 à 15:09
+-- Généré le : mar. 12 oct. 2021 à 15:58
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -24,6 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `category_forum`
+--
+
+DROP TABLE IF EXISTS `category_forum`;
+CREATE TABLE IF NOT EXISTS `category_forum` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
+  `name_category` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_6D18F184727ACA70` (`parent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `comments_news`
 --
 
@@ -31,7 +47,6 @@ DROP TABLE IF EXISTS `comments_news`;
 CREATE TABLE IF NOT EXISTS `comments_news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `news_id` int(11) NOT NULL,
-  `parent_id` int(11) DEFAULT NULL,
   `content_comment_news` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created_at_comment_news` datetime NOT NULL,
@@ -39,9 +54,17 @@ CREATE TABLE IF NOT EXISTS `comments_news` (
   `users_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_9902B4F7B5A459A0` (`news_id`),
-  KEY `IDX_9902B4F7727ACA70` (`parent_id`),
   KEY `IDX_9902B4F767B3B43D` (`users_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `comments_news`
+--
+
+INSERT INTO `comments_news` (`id`, `news_id`, `content_comment_news`, `active`, `created_at_comment_news`, `rgpd`, `users_id`) VALUES
+(1, 2, 'commentaire test de la news test 1', 0, '2021-10-11 08:54:04', 1, NULL),
+(2, 3, 'commentaire testttt', 0, '2021-10-11 09:55:21', 1, NULL),
+(3, 2, 'vfresgj rht k', 0, '2021-10-11 09:58:39', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -82,16 +105,39 @@ CREATE TABLE IF NOT EXISTS `news` (
   `creation_date_news` datetime NOT NULL,
   `modification_date_news` datetime NOT NULL,
   `users_id` int(11) DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_1DD3995067B3B43D` (`users_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `news`
 --
 
-INSERT INTO `news` (`id`, `title_news`, `content_news`, `img_news`, `creation_date_news`, `modification_date_news`, `users_id`) VALUES
-(2, 'news de test 1', 'yreyheue(u', 'Capture-615c1a89f2a97.jpg', '2021-10-05 09:27:37', '2021-10-05 09:27:37', 1);
+INSERT INTO `news` (`id`, `title_news`, `content_news`, `img_news`, `creation_date_news`, `modification_date_news`, `users_id`, `slug`) VALUES
+(2, 'news de test 1', 'yreyheue(u', 'Capture-615c1a89f2a97.jpg', '2021-10-05 09:27:37', '2021-10-05 09:27:37', 1, ''),
+(3, 'news de test 2', 'contenu test 2 2 2 2 2 2 2 22', 'accueil-616402caad2d6.jpg', '2021-10-11 09:24:26', '2021-10-11 09:24:26', 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `post_forum`
+--
+
+DROP TABLE IF EXISTS `post_forum`;
+CREATE TABLE IF NOT EXISTS `post_forum` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `users_id` int(11) NOT NULL,
+  `category_forum_id` int(11) NOT NULL,
+  `title_post` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_post` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_1230322267B3B43D` (`users_id`),
+  KEY `IDX_123032229EB63EAB` (`category_forum_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -144,11 +190,16 @@ INSERT INTO `users` (`id`, `email`, `roles`, `password`, `is_verified`, `pseudo`
 --
 
 --
+-- Contraintes pour la table `category_forum`
+--
+ALTER TABLE `category_forum`
+  ADD CONSTRAINT `FK_6D18F184727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `category_forum` (`id`);
+
+--
 -- Contraintes pour la table `comments_news`
 --
 ALTER TABLE `comments_news`
   ADD CONSTRAINT `FK_9902B4F767B3B43D` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `FK_9902B4F7727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `comments_news` (`id`),
   ADD CONSTRAINT `FK_9902B4F7B5A459A0` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`);
 
 --
@@ -156,6 +207,13 @@ ALTER TABLE `comments_news`
 --
 ALTER TABLE `news`
   ADD CONSTRAINT `FK_1DD3995067B3B43D` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `post_forum`
+--
+ALTER TABLE `post_forum`
+  ADD CONSTRAINT `FK_1230322267B3B43D` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `FK_123032229EB63EAB` FOREIGN KEY (`category_forum_id`) REFERENCES `category_forum` (`id`);
 
 --
 -- Contraintes pour la table `reset_password_request`

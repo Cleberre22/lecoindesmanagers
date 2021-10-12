@@ -3,12 +3,9 @@
 {% block title %}News index{% endblock %}
 
 {% block body %}
-<section style="height: 100px;">
-</section>
 
 <div class="container">
     <h1>News index</h1>
-
     <table class="table">
         <thead>
             <tr>
@@ -33,10 +30,8 @@
                 <td>{{ news.creationDateNews ? news.creationDateNews|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ news.modificationDateNews ? news.modificationDateNews|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-               
                     <a href="{{ path('news_show', {'id': news.id}) }}">show</a>
                     <a href="{{ path('news_edit', {'id': news.id}) }}">edit</a>
-				
                 </td>
             </tr>
         {% else %}
@@ -46,7 +41,6 @@
         {% endfor %}
         </tbody>
     </table>
-
     <a href="{{ path('news_new') }}">Create new</a>
 </div>
     
