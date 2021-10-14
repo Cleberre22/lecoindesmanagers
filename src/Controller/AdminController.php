@@ -34,6 +34,16 @@ class AdminController extends AbstractController
 
         $form = $this->createForm(CategoryForumType::class, $category);
 
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($category);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_home');
+        }
+
         return $this->render('admin/categories/ajout.html.twig', [
             'form' => $form->createView()
         ]);

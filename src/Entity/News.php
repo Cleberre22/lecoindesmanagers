@@ -85,6 +85,11 @@ class News
         return $this;
     }
 
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
     public function getContentNews(): ?string
     {
         return $this->contentNews;
