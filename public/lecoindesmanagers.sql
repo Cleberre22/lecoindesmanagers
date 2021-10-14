@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 12 oct. 2021 à 15:58
+-- Généré le : jeu. 14 oct. 2021 à 13:44
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -35,7 +35,16 @@ CREATE TABLE IF NOT EXISTS `category_forum` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_6D18F184727ACA70` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `category_forum`
+--
+
+INSERT INTO `category_forum` (`id`, `parent_id`, `name_category`, `slug`) VALUES
+(1, NULL, 'Général', 'general'),
+(2, NULL, 'Vos carrières', 'vos-carrieres'),
+(3, NULL, 'Tactiques et entrainements', 'tactiques-et-entrainements');
 
 -- --------------------------------------------------------
 
@@ -137,7 +146,15 @@ CREATE TABLE IF NOT EXISTS `post_forum` (
   PRIMARY KEY (`id`),
   KEY `IDX_1230322267B3B43D` (`users_id`),
   KEY `IDX_123032229EB63EAB` (`category_forum_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `post_forum`
+--
+
+INSERT INTO `post_forum` (`id`, `users_id`, `category_forum_id`, `title_post`, `slug`, `content_post`, `created_at`, `active`) VALUES
+(1, 1, 2, 'Fc Nantes le rachat !', 'fc-nantes-le-rachat', 'qsgvfsfnhtgjfy jyjyjyjrftj', '2021-10-14 11:40:48', 0),
+(2, 1, 3, 'Tactique Sampaoli - Marseille', 'tactique-sampaoli-marseille', 'bvhjhtjdtd jtjyfjfftjjtfjhutfh', '2021-10-14 12:38:28', 0);
 
 -- --------------------------------------------------------
 
