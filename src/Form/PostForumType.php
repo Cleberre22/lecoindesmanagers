@@ -16,12 +16,11 @@ class PostForumType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titlePost', TextType::class)
-            ->add('contentPost', TextareaType::class)
             ->add('categoryForum', EntityType::class, [
                 'class' => CategoryForum::class
             ])
-        ;
+            ->add('titlePost', TextType::class)
+            ->add('contentPost', TextareaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

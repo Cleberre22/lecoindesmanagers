@@ -3,14 +3,13 @@
 {% block title %}CategoryForum index{% endblock %}
 
 {% block body %}
-    <h1>CategoryForum index</h1>
+    <h1>Le Forum Des Managers</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>NameCategory</th>
-                <th>Slug</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,7 +18,6 @@
             <tr>
                 <td>{{ category_forum.id }}</td>
                 <td><a href="{{ path('category_forum_show', {'id': category_forum.id}) }}">{{ category_forum.nameCategory }}</a></td>
-                <td>{{ category_forum.slug }}</td>
                 <td>
                     <a href="{{ path('category_forum_show', {'id': category_forum.id}) }}">show</a>
                     <a href="{{ path('category_forum_edit', {'id': category_forum.id}) }}">edit</a>
@@ -33,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('category_forum_new') }}">Create new</a>
+    <a href="{{ path('post_forum_new') }}">Créer un nouveau topic</a>
 {% endblock %}
