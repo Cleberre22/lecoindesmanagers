@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PostForum{% endblock %}
+
+{% block body %}
+    <h1>PostForum</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ post_forum.id }}</td>
+            </tr>
+            <tr>
+                <th>TitlePost</th>
+                <td>{{ post_forum.titlePost }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ post_forum.slug }}</td>
+            </tr>
+            <tr>
+                <th>ContentPost</th>
+                <td>{{ post_forum.contentPost }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ post_forum.createdAt ? post_forum.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ post_forum.active ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('post_forum_index') }}">back to list</a>
+
+    <a href="{{ path('post_forum_edit', {'id': post_forum.id}) }}">edit</a>
+
+    {{ include('post_forum/_delete_form.html.twig') }}
+{% endblock %}

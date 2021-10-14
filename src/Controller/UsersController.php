@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\PostForum;
 use App\Entity\Users;
+use App\Form\PostForumType;
 use App\Form\UsersType;
 use App\Repository\UsersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\PostForumRepository;
+use App\Entity\Users;
+use App\Entity\CategoryForum;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use App\Repository\PostForumRepository;
 
 /**
  * @ORM\Entity(repositoryClass=PostForumRepository::class)
@@ -23,6 +26,7 @@ class PostForum
     private $titlePost;
 
     /**
+     * @Gedmo\Slug(fields={"titlePost"})
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
@@ -40,7 +44,7 @@ class PostForum
     /**
      * @ORM\Column(type="boolean")
      */
-    private $active;
+    private $active = false;
 
     /**
      * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="postForums")
@@ -74,13 +78,6 @@ class PostForum
     public function getSlug(): ?string
     {
         return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
     }
 
     public function getContentPost(): ?string

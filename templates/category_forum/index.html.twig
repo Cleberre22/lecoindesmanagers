@@ -18,7 +18,7 @@
         {% for category_forum in category_forums %}
             <tr>
                 <td>{{ category_forum.id }}</td>
-                <td>{{ category_forum.nameCategory }}</td>
+                <td><a href="{{ path('category_forum_show', {'id': category_forum.id}) }}">{{ category_forum.nameCategory }}</a></td>
                 <td>{{ category_forum.slug }}</td>
                 <td>
                     <a href="{{ path('category_forum_show', {'id': category_forum.id}) }}">show</a>
