@@ -15,7 +15,7 @@ class CategoryForumType extends AbstractType
     {
         $builder
             ->add('nameCategory', TextType::class)
-            // ->add('parent')
+            ->add('parent')
             ->add('Valider', SubmitType::class)
         ;
     }

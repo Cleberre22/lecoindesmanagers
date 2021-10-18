@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 18 oct. 2021 à 10:19
+-- Généré le : lun. 18 oct. 2021 à 14:35
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -35,17 +35,23 @@ CREATE TABLE IF NOT EXISTS `category_forum` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_6D18F184727ACA70` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `category_forum`
 --
 
 INSERT INTO `category_forum` (`id`, `parent_id`, `name_category`, `slug`) VALUES
-(1, NULL, 'Général', 'general'),
+(1, 9, 'Général', 'general'),
 (2, NULL, 'Vos carrières', 'vos-carrieres'),
-(3, NULL, 'Tactiques et entrainements', 'tactiques-et-entrainements'),
-(4, NULL, 'Vos meilleurs Newgen', 'vos-meilleurs-newgen');
+(3, 9, 'Tactiques et entrainements', 'tactiques-et-entrainements'),
+(4, 7, 'Vos meilleurs Newgen', 'vos-meilleurs-newgen'),
+(5, NULL, 'bla bla en vrac', 'bla-bla-en-vrac'),
+(6, 8, 'Entraide', 'entraide'),
+(7, NULL, 'FM 19', 'fm-19'),
+(8, NULL, 'FM 20', 'fm-20'),
+(9, NULL, 'FM 21', 'fm-21'),
+(10, NULL, 'FM 22', 'fm-22');
 
 -- --------------------------------------------------------
 
@@ -201,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `email`, `roles`, `password`, `is_verified`, `pseudo`, `created_at`, `modified_at`) VALUES
 (1, 'c.leberre@hotmail.fr', '[\"ROLE_USER\", \"ROLE_ADMIN\", \"ROLE_EDITOR\", \"ROLE_MODERATOR\", \"ROLE_MEMBER\"]', '$2y$13$ujETC/m6dQ2b2HC3peQZSeHcTRSWrENwW2Zt21UB0IKOy80RjNTc6', 1, 'Charley22', '2021-09-30 13:38:03', '2021-09-30 13:38:03'),
-(3, 'charley.leberre@gmail.com', '[\"ROLE_USER\", \"ROLE_EDITOR\", \"ROLE_MODERATOR\", \"ROLE_MEMBER\"]', '$2y$13$sHIuxVaysA3.wuasT03RQuCCy.rGsnOa/k9kmXdy05GdglNLU3VpS', 1, 'Zizou98', '2021-10-05 10:17:09', '2021-10-05 10:17:09');
+(3, 'charley.leberre@gmail.com', '[\"ROLE_USER\", \"ROLE_MEMBER\"]', '$2y$13$sHIuxVaysA3.wuasT03RQuCCy.rGsnOa/k9kmXdy05GdglNLU3VpS', 1, 'Zizou98', '2021-10-05 10:17:09', '2021-10-05 10:17:09');
 
 --
 -- Contraintes pour les tables déchargées

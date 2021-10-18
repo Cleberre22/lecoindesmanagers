@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\CategoryForum;
 use App\Form\CategoryForumType;
 use App\Repository\NewsRepository;
@@ -14,16 +15,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/admin", name="admin_")
- * @package App\Controller
+ * @package App\Controller\Admin
  */
 class AdminController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function index(PostForumRepository $postForumRepository, NewsRepository $newsRepository): Response
+    public function index(): Response
     {
-        // 'newsRepository' => $newsRepository->findBy([],['id'=>'DESC'],3),
+    
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
         ]);

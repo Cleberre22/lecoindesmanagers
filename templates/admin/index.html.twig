@@ -3,12 +3,9 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-{% if is_granted("ROLE_ADMIN") %}
-<h1>Tableau de bord Admin</h1>
-<h2>news</h2>
 
-<h2>forum</h2>
-<h3>Ajouter / Modifier une catégorie</h3>
-{% endif %}
+<h1>Tableau de bord Admin</h1>
+<a href="{{ path('admin_categories_home') }}" class="btn-accueil">Catégories du forum</a>
+
 {% endblock %}
 

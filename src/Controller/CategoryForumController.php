@@ -64,37 +64,37 @@ class CategoryForumController extends AbstractController
 
 
 
-    /**
-     * @Route("/{id}/edit", name="category_forum_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, CategoryForum $categoryForum): Response
-    {
-        $form = $this->createForm(CategoryForumType::class, $categoryForum);
-        $form->handleRequest($request);
+    // /**
+    //  * @Route("/{id}/edit", name="category_forum_edit", methods={"GET","POST"})
+    //  */
+    // public function edit(Request $request, CategoryForum $categoryForum): Response
+    // {
+    //     $form = $this->createForm(CategoryForumType::class, $categoryForum);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('category_forum_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //         return $this->redirectToRoute('category_forum_index', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->renderForm('category_forum/edit.html.twig', [
-            'category_forum' => $categoryForum,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->renderForm('category_forum/edit.html.twig', [
+    //         'category_forum' => $categoryForum,
+    //         'form' => $form,
+    //     ]);
+    // }
 
-    /**
-     * @Route("/{id}", name="category_forum_delete", methods={"POST"})
-     */
-    public function delete(Request $request, CategoryForum $categoryForum): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $categoryForum->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($categoryForum);
-            $entityManager->flush();
-        }
+    // /**
+    //  * @Route("/{id}", name="category_forum_delete", methods={"POST"})
+    //  */
+    // public function delete(Request $request, CategoryForum $categoryForum): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete' . $categoryForum->getId(), $request->request->get('_token'))) {
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->remove($categoryForum);
+    //         $entityManager->flush();
+    //     }
 
-        return $this->redirectToRoute('category_forum_index', [], Response::HTTP_SEE_OTHER);
-    }
+    //     return $this->redirectToRoute('category_forum_index', [], Response::HTTP_SEE_OTHER);
+    // }
 }
