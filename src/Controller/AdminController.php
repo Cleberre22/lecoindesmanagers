@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use App\Entity\CategoryForum;
 use App\Form\CategoryForumType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\NewsRepository;
+use App\Repository\PostForumRepository;
+use Symfony\Bundle\FrameworkBundle\Console\Descriptor\Descriptor;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/admin", name="admin_")
@@ -18,34 +21,11 @@ class AdminController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function index(PostForumRepository $postForumRepository, NewsRepository $newsRepository): Response
     {
+        // 'newsRepository' => $newsRepository->findBy([],['id'=>'DESC'],3),
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
-        ]);
-    }
-
-    /**
-     * @Route("/categories/ajout", name="categories_ajout")
-     */
-    public function ajoutCategorie(Request $request)
-    {
-        $category = new CategoryForum;
-
-        $form = $this->createForm(CategoryForumType::class, $category);
-
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($category);
-            $em->flush();
-
-            return $this->redirectToRoute('admin_home');
-        }
-
-        return $this->render('admin/categories/ajout.html.twig', [
-            'form' => $form->createView()
         ]);
     }
 }

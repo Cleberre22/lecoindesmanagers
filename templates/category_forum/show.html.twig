@@ -4,35 +4,28 @@
 {% endblock %}
 
 {% block body %}
-	<h1>CategoryForum</h1>
+<div class="container">
+	<h1>{{ category_forum.nameCategory }}</h1>
 
-	<table class="table">
-		<tbody>
-			<tr>
-				<th>Id</th>
-				<td>{{ category_forum.id }}</td>
-			</tr>
-			<tr>
-				<th>NameCategory</th>
-				<td>{{ category_forum.nameCategory }}</td>
-			</tr>
-			<tr>
-				<th>Slug</th>
-				<td>{{ category_forum.slug }}</td>
-			</tr>
-		</tbody>
-	</table>
-	<a href="{{ path('post_forum_new') }}">Créer un nouveau topic</a>
-
-	<a href="{{ path('category_forum_index') }}">back to list</a>
-
-	<a href="{{ path('category_forum_edit', {'id': category_forum.id}) }}">edit</a>
-
-	{# {% for category in postForums %}
-		{{ post_forum.id }}
-		{{ post_forum.titlePost }}
-	{% endfor %}}  #}
+	<a href="{{ path('post_forum_new') }}">Créer un nouveau topic</a></br>
+	
+	<a href="{{ path('category_forum_index') }}">back to list</a></br>
+	
+	<a href="{{ path('category_forum_edit', {'id': category_forum.id}) }}">edit</a></br>
 	
 
+	
+	{% for post_forum in postForum %}
+	<a href="{{ path('post_forum_show', {'id': post_forum.id}) }}">{% if category_forum.id == post_forum.categoryForum.id  %}
+		{{ post_forum.titlePost }}
+		Par {{ post_forum.users.pseudo }}
+		{{ post_forum.createdAt ? post_forum.createdAt|date('d-m-Y à H:i') : '' }}
+		{% endif %}</a>
+	
+	{% endfor %}
+
+	
 	{{ include('category_forum/_delete_form.html.twig') }}
+</div>
+
 {% endblock %}

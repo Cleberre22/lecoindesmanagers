@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 14 oct. 2021 à 13:44
+-- Généré le : lun. 18 oct. 2021 à 10:19
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `category_forum` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_6D18F184727ACA70` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `category_forum`
@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS `category_forum` (
 INSERT INTO `category_forum` (`id`, `parent_id`, `name_category`, `slug`) VALUES
 (1, NULL, 'Général', 'general'),
 (2, NULL, 'Vos carrières', 'vos-carrieres'),
-(3, NULL, 'Tactiques et entrainements', 'tactiques-et-entrainements');
+(3, NULL, 'Tactiques et entrainements', 'tactiques-et-entrainements'),
+(4, NULL, 'Vos meilleurs Newgen', 'vos-meilleurs-newgen');
 
 -- --------------------------------------------------------
 
