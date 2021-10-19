@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 18 oct. 2021 à 14:35
+-- Généré le : mar. 19 oct. 2021 à 10:30
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `post_forum` (
   PRIMARY KEY (`id`),
   KEY `IDX_1230322267B3B43D` (`users_id`),
   KEY `IDX_123032229EB63EAB` (`category_forum_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `post_forum`
@@ -161,7 +161,12 @@ CREATE TABLE IF NOT EXISTS `post_forum` (
 
 INSERT INTO `post_forum` (`id`, `users_id`, `category_forum_id`, `title_post`, `slug`, `content_post`, `created_at`, `active`) VALUES
 (1, 1, 2, 'Fc Nantes le rachat !', 'fc-nantes-le-rachat', 'qsgvfsfnhtgjfy jyjyjyjrftj', '2021-10-14 11:40:48', 0),
-(2, 1, 3, 'Tactique Sampaoli - Marseille', 'tactique-sampaoli-marseille', 'bvhjhtjdtd jtjyfjfftjjtfjhutfh', '2021-10-14 12:38:28', 0);
+(2, 1, 3, 'Tactique Sampaoli - Marseille', 'tactique-sampaoli-marseille', 'bvhjhtjdtd jtjyfjfftjjtfjhutfh', '2021-10-14 12:38:28', 0),
+(3, 1, 3, 'Tactique Tiki-Taka Barça', 'tactique-tiki-taka-barca', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper ipsum magna, ut malesuada orci commodo eget. Mauris eget libero nunc. Phasellus malesuada velit sit amet diam sodales, a euismod arcu imperdiet. Integer aliquet interdum mi. Phasellus id consequat nibh. Nam aliquam, sem id vestibulum aliquet, erat metus rhoncus ligula, non convallis mauris nunc at ante. Mauris massa quam, fermentum quis viverra at, imperdiet et augue. Quisque facilisis massa et aliquet semper. Phasellus imperdiet ornare pretium. Aliquam sit amet nibh venenatis, auctor massa eget, maximus neque. In ut faucibus eros. Quisque sit amet mollis est. Nullam vel urna a nunc tincidunt eleifend ac ac sapien.', '2021-10-19 09:33:29', 0),
+(4, 1, 3, 'Tactique Ajax - Johan Cruyff', 'tactique-ajax-johan-cruyff', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam imperdiet venenatis turpis in bibendum. Suspendisse pharetra sem sed nisl rhoncus ornare. Quisque bibendum lectus vel blandit maximus. Aenean pulvinar ornare molestie. Sed quis porta metus. Donec gravida, dui sed dapibus hendrerit, ligula tellus dictum eros, a tincidunt ligula purus ac diam. Etiam a orci pretium, eleifend sapien quis, posuere ligula. Nulla congue pharetra ipsum eu sodales. Nullam enim ipsum, maximus non feugiat in, pellentesque vitae risus. Pellentesque auctor porta accumsan. Ut posuere rutrum consectetur. Aliquam tincidunt ante in mauris bibendum, at dapibus est ornare. Donec convallis fringilla risus, in egestas tortor rhoncus at. Donec consectetur ornare orci, quis efficitur sapien dictum vel. Morbi egestas arcu interdum, vulputate elit non, pharetra diam.', '2021-10-19 10:10:53', 0),
+(5, 1, 3, 'Tactique Liverpool - Jürgen Klopp', 'tactique-liverpool-jurgen-klopp', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam imperdiet venenatis turpis in bibendum. Suspendisse pharetra sem sed nisl rhoncus ornare. Quisque bibendum lectus vel blandit maximus. Aenean pulvinar ornare molestie. Sed quis porta metus. Donec gravida, dui sed dapibus hendrerit, ligula tellus dictum eros, a tincidunt ligula purus ac diam. Etiam a orci pretium, eleifend sapien quis, posuere ligula. Nulla congue pharetra ipsum eu sodales. Nullam enim ipsum, maximus non feugiat in, pellentesque vitae risus. Pellentesque auctor porta accumsan. Ut posuere rutrum consectetur. Aliquam tincidunt ante in mauris bibendum, at dapibus est ornare. Donec convallis fringilla risus, in egestas tortor rhoncus at. Donec consectetur ornare orci, quis efficitur sapien dictum vel. Morbi egestas arcu interdum, vulputate elit non, pharetra diam.', '2021-10-19 10:11:54', 0),
+(6, 1, 1, 'Tactique Inter Milan - 2010', 'tactique-inter-milan-2010', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam imperdiet venenatis turpis in bibendum. Suspendisse pharetra sem sed nisl rhoncus ornare. Quisque bibendum lectus vel blandit maximus. Aenean pulvinar ornare molestie. Sed quis porta metus. Donec gravida, dui sed dapibus hendrerit, ligula tellus dictum eros, a tincidunt ligula purus ac diam. Etiam a orci pretium, eleifend sapien quis, posuere ligula. Nulla congue pharetra ipsum eu sodales. Nullam enim ipsum, maximus non feugiat in, pellentesque vitae risus. Pellentesque auctor porta accumsan. Ut posuere rutrum consectetur. Aliquam tincidunt ante in mauris bibendum, at dapibus est ornare. Donec convallis fringilla risus, in egestas tortor rhoncus at. Donec consectetur ornare orci, quis efficitur sapien dictum vel. Morbi egestas arcu interdum, vulputate elit non, pharetra diam.', '2021-10-19 10:12:36', 0),
+(7, 1, 3, 'Tactique Inter Milan - 2010', 'tactique-inter-milan-2010-1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam imperdiet venenatis turpis in bibendum. Suspendisse pharetra sem sed nisl rhoncus ornare. Quisque bibendum lectus vel blandit maximus. Aenean pulvinar ornare molestie. Sed quis porta metus. Donec gravida, dui sed dapibus hendrerit, ligula tellus dictum eros, a tincidunt ligula purus ac diam. Etiam a orci pretium, eleifend sapien quis, posuere ligula. Nulla congue pharetra ipsum eu sodales. Nullam enim ipsum, maximus non feugiat in, pellentesque vitae risus. Pellentesque auctor porta accumsan. Ut posuere rutrum consectetur. Aliquam tincidunt ante in mauris bibendum, at dapibus est ornare. Donec convallis fringilla risus, in egestas tortor rhoncus at. Donec consectetur ornare orci, quis efficitur sapien dictum vel. Morbi egestas arcu interdum, vulputate elit non, pharetra diam.', '2021-10-19 10:13:00', 0);
 
 -- --------------------------------------------------------
 
