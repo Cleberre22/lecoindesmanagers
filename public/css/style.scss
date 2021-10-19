@@ -9,14 +9,23 @@
 }
 
 body {
+  background-image: linear-gradient(
+      rgba(89, 3, 116, 0.1),
+      rgba(195, 0, 255, 0.1)
+    ),
+    url(/uploads/photos/accueil.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #f1f1f1;
   font-family: "Orbitron", sans-serif;
   h1 {
     font-family: "Orbitron", sans-serif;
   }
-  .container {
-    background-color: #f1f1f1;
-  }
+  // .container {
+  //   background-color: #f1f1f1;
+  // }
 }
 /* NAVIGATION 
 ================================================== */
@@ -171,7 +180,7 @@ nav {
   h1 {
     text-align: center;
     font-size: clamp(35px, 6vw, 100px);
-    text-shadow: 0 0 10px #281040;
+    text-shadow: 0 0 10px #4b177e;
     color: #f1f1f1;
     margin-top: 10px;
   }
@@ -209,22 +218,37 @@ nav {
 ================================================== */
 /* FORUM liste des catégories 
 ============================= */
+.contCategory{
+  h1 {
+    text-align: center;
+    font-size: clamp(25px, 6vw, 50px);
+    text-shadow: 0 0 10px #4b177e;
+    color: #f1f1f1;
+    margin-top: 10px;
+  }
+  border-left: 3px solid #f9ec34;
+  border-right: 3px solid #f9ec34;
+}
+.bgListCat {
+  background-color: #4b177e;
+}
 .headCategory {
-    background-color: #4b177e;
+  border: 2px solid #f9ec34;
+  background-color: #4b177e;
 }
 .cardCategory {
+  text-decoration: none;
+  color: #4b177e;
+  p {
     text-decoration: none;
     color: #4b177e;
-    p {
-        text-decoration: none;
-        color: #4b177e;
-        font-family: "Roboto", sans-serif;
-    }
+    font-family: "Roboto", sans-serif;
+  }
 }
 
 .bgCardTopCat {
-    background-color: #281040;
-    color: #f1f1f1;
+  background-color: #281040;
+  color: #f1f1f1;
 }
 /* FORUM liste de sujet 
 ======================= */

@@ -4,27 +4,30 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
+<div class="container py-5">
 	<h1>Le forum des managers</h1>
-	<h2>{{ category_forum.nameCategory }}</h2>
-
-	<a href="{{ path('post_forum_new') }}">Créer un nouveau topic</a></br>
-
-	<a href="{{ path('category_forum_index') }}">back to list</a></br>
-
-<section>
-	<div class="card">
-		{% for post_forum in postForum %}
-		{% if category_forum.id == post_forum.categoryForum.id  %}
-		<h5 class="card-header">Sujet</h5>
-		<div class="card-body">
-		  <h5 class="card-title">{{ post_forum.titlePost }}</h5>
-		  <p class="card-text">Par <span class="colorUser">{{ post_forum.users.pseudo }}</span>, le {{ post_forum.createdAt ? post_forum.createdAt|date('d-m-Y à H:i') : '' }}</p>
-		</div>
-		{% endif %}
-		{% endfor %}
-	  </div>
-</section>
+	<section>
+		<div class="card">
+			<div class="card-header">
+				<h2>{{ category_forum.nameCategory }}</h2>
+				<a href="{{ path('post_forum_new') }}">Créer un nouveau topic <i class="fas fa-pencil-alt"></i></a></br>
+				<a href="{{ path('category_forum_index') }}">back to list</a></br>
+			</div>
+			<div class="card-body bgListCat">
+				<div class="card">
+					{% for post_forum in postForum %}
+					{% if category_forum.id == post_forum.categoryForum.id  %}
+					<h5 class="card-header"><i class="far fa-futbol"></i></h5>
+					<div class="card-body">
+						<h5 class="card-title">{{ post_forum.titlePost }}</h5>
+						<p class="card-text">Par <span class="colorUser">{{ post_forum.users.pseudo }}</span>, le
+							{{ post_forum.createdAt ? post_forum.createdAt|date('d-m-Y à H:i') : '' }}</p>
+					</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+	</section>
 
 
 

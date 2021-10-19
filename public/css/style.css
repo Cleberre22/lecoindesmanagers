@@ -10,16 +10,18 @@
 }
 
 body {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(89, 3, 116, 0.1)), to(rgba(195, 0, 255, 0.1))), url(/uploads/photos/accueil.jpg);
+  background-image: linear-gradient(rgba(89, 3, 116, 0.1), rgba(195, 0, 255, 0.1)), url(/uploads/photos/accueil.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #f1f1f1;
   font-family: "Orbitron", sans-serif;
 }
 
 body h1 {
   font-family: "Orbitron", sans-serif;
-}
-
-body .container {
-  background-color: #f1f1f1;
 }
 
 /* NAVIGATION 
@@ -190,7 +192,7 @@ nav {
 .accueil h1 {
   text-align: center;
   font-size: clamp(35px, 6vw, 100px);
-  text-shadow: 0 0 10px #281040;
+  text-shadow: 0 0 10px #4b177e;
   color: #f1f1f1;
   margin-top: 10px;
 }
@@ -234,7 +236,25 @@ nav {
 ================================================== */
 /* FORUM liste des catégories 
 ============================= */
+.contCategory {
+  border-left: 3px solid #f9ec34;
+  border-right: 3px solid #f9ec34;
+}
+
+.contCategory h1 {
+  text-align: center;
+  font-size: clamp(25px, 6vw, 50px);
+  text-shadow: 0 0 10px #4b177e;
+  color: #f1f1f1;
+  margin-top: 10px;
+}
+
+.bgListCat {
+  background-color: #4b177e;
+}
+
 .headCategory {
+  border: 2px solid #f9ec34;
   background-color: #4b177e;
 }
 
