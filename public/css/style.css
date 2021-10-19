@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* GLOBAL
 ================================================== */
 *,
@@ -10,11 +11,11 @@
 
 body {
   background-color: #f1f1f1;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 body h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 body .container {
@@ -27,8 +28,8 @@ nav {
   position: fixed;
   height: 100px;
   width: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(#281040), to(#4B177E));
-  background: linear-gradient(to bottom, #281040, #4B177E);
+  background: -webkit-gradient(linear, left top, left bottom, from(#281040), to(#4b177e));
+  background: linear-gradient(to bottom, #281040, #4b177e);
   z-index: 10;
   border-bottom: 3px solid #f9ec34;
 }
@@ -53,7 +54,7 @@ nav {
   color: #f1f1f1;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .connexion-grand-ecran a::after {
@@ -81,8 +82,8 @@ nav {
 }
 
 .liste-nav {
-  background: -webkit-gradient(linear, left top, left bottom, from(#281040), to(#4B177E));
-  background: linear-gradient(to bottom, #281040, #4B177E);
+  background: -webkit-gradient(linear, left top, left bottom, from(#281040), to(#4b177e));
+  background: linear-gradient(to bottom, #281040, #4b177e);
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -110,7 +111,7 @@ nav {
   text-decoration: none;
   margin: 0 20px;
   text-transform: uppercase;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .item-nav a::after {
@@ -196,8 +197,8 @@ nav {
 
 .accueil .btn-accueil {
   border-radius: 9999px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#281040), to(#4B177E));
-  background: linear-gradient(to bottom, #281040, #4B177E);
+  background: -webkit-gradient(linear, left top, left bottom, from(#281040), to(#4b177e));
+  background: linear-gradient(to bottom, #281040, #4b177e);
   border: 2px solid #f9ec34;
   color: #f1f1f1;
   text-align: center;
@@ -229,6 +230,37 @@ nav {
   }
 }
 
+/* FORUM  
+================================================== */
+/* FORUM liste des catégories 
+============================= */
+.headCategory {
+  background-color: #4b177e;
+}
+
+.cardCategory {
+  text-decoration: none;
+  color: #4b177e;
+}
+
+.cardCategory p {
+  text-decoration: none;
+  color: #4b177e;
+  font-family: "Roboto", sans-serif;
+}
+
+.bgCardTopCat {
+  background-color: #281040;
+  color: #f1f1f1;
+}
+
+/* FORUM liste de sujet 
+======================= */
+.colorUser {
+  color: #4b177e;
+  font-weight: 700;
+}
+
 /* FOOTER 
 ================================================== */
 footer {
@@ -237,8 +269,8 @@ footer {
   z-index: 10;
   position: absolute;
   bottom: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#4B177E), to(#281040));
-  background: linear-gradient(to bottom, #4B177E, #281040);
+  background: -webkit-gradient(linear, left top, left bottom, from(#4b177e), to(#281040));
+  background: linear-gradient(to bottom, #4b177e, #281040);
   border-top: 3px solid #f9ec34;
 }
 /*# sourceMappingURL=style.css.map */

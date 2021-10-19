@@ -1,35 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CategoryForum index{% endblock %}
+{% block title %}Le forum des managers{% endblock %}
 
 {% block body %}
-    <h1>Le Forum Des Managers</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NameCategory</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="container">
+    <section>
+        <h1>Le forum des managers</h1>
+        <div class"headCategory" style"70px">
+
+        </div>
         {% for category_forum in category_forums %}
-            <tr>
-                <td>{{ category_forum.id }}</td>
-                <td><a href="{{ path('category_forum_show', {'id': category_forum.id}) }}">{{ category_forum.nameCategory }}</a></td>
-                <td>
-                    <a href="{{ path('category_forum_show', {'id': category_forum.id}) }}">show</a>
-                    <a href="{{ path('category_forum_edit', {'id': category_forum.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <a href="{{ path('category_forum_show', {'id': category_forum.id}) }}" class="cardCategory">
+        <div class="card mb-2">
+            <h5 class="card-header"><span class="colorUser">{{ category_forum.nameCategory }}</span></h5>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text"><span class="colorUser">{{ category_forum.parent }}</span> Nombre de reponse  Derniermessage/par</p>
+            </div>
+          </div>
+        </a>
+          {% endfor %}
+    </section>
+</div>
 
-    <a href="{{ path('category_forum_new') }}">Créer un nouveau categorie</a>
 {% endblock %}

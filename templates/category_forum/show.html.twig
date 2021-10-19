@@ -5,27 +5,29 @@
 
 {% block body %}
 <div class="container">
-	<h1>{{ category_forum.nameCategory }}</h1>
+	<h1>Le forum des managers</h1>
+	<h2>{{ category_forum.nameCategory }}</h2>
 
 	<a href="{{ path('post_forum_new') }}">Créer un nouveau topic</a></br>
-	
+
 	<a href="{{ path('category_forum_index') }}">back to list</a></br>
-	
-	<a href="{{ path('category_forum_edit', {'id': category_forum.id}) }}">edit</a></br>
-	
 
-	
-	{% for post_forum in postForum %}
-	<a href="{{ path('post_forum_show', {'id': post_forum.id}) }}">{% if category_forum.id == post_forum.categoryForum.id  %}
-		{{ post_forum.titlePost }}
-		Par {{ post_forum.users.pseudo }}
-		{{ post_forum.createdAt ? post_forum.createdAt|date('d-m-Y à H:i') : '' }}
-		{% endif %}</a>
-	
-	{% endfor %}
+<section>
+	<div class="card">
+		{% for post_forum in postForum %}
+		{% if category_forum.id == post_forum.categoryForum.id  %}
+		<h5 class="card-header">Sujet</h5>
+		<div class="card-body">
+		  <h5 class="card-title">{{ post_forum.titlePost }}</h5>
+		  <p class="card-text">Par <span class="colorUser">{{ post_forum.users.pseudo }}</span>, le {{ post_forum.createdAt ? post_forum.createdAt|date('d-m-Y à H:i') : '' }}</p>
+		</div>
+		{% endif %}
+		{% endfor %}
+	  </div>
+</section>
 
-	
-	{{ include('category_forum/_delete_form.html.twig') }}
+
+
 </div>
 
 {% endblock %}
