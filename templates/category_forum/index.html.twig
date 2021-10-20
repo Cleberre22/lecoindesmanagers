@@ -5,31 +5,52 @@
 {% block body %}
 
 <div class="container py-5 contCategory">
-    <section>
-        <h1>Le forum des managers</h1>
-        <div class"headCategory">
-          <p>zqfeggesghrs</p>
+  <section>
+    <h1>Le forum des managers</h1>
+
+    <div class="test">
+      <div class="card">
+        <div class="card-header">
+          Featured
         </div>
-
-
-        <div class="card">
-            <div class="card-header">
-              Featured
+        <div class="card-body bgListCat">
+          {% for category_forum in category_forums %}
+          <a href="{{ path('category_forum_show', {'id': category_forum.id}) }}" class="cardCategory">
+            <div class="card">
+              <h5 class="card-header"><span class="colorUser"><i class="far fa-futbol"></i>
+                  {{ category_forum.nameCategory }}</span></h5>
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"><span class="colorUser">{{ category_forum.parent }}</span> Nombre de reponse
+                  Derniermessage/par</p>
+              </div>
             </div>
-            <div class="card-body bgListCat">
-                {% for category_forum in category_forums %}
-                <a href="{{ path('category_forum_show', {'id': category_forum.id}) }}" class="cardCategory">
-                <div class="card mb-1">
-                    <h5 class="card-header"><span class="colorUser"><i class="far fa-futbol"></i> {{ category_forum.nameCategory }}</span></h5>
-                    <div class="card-body">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text"><span class="colorUser">{{ category_forum.parent }}</span> Nombre de reponse  Derniermessage/par</p>
-                    </div>
-                  </div>
-                </a>
-                  {% endfor %}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body bgListCat">
+        {% for category_forum in category_forums %}
+        <a href="{{ path('category_forum_show', {'id': category_forum.id}) }}" class="cardCategory">
+          <div class="card">
+            <h5 class="card-header"><span class="colorUser"><i class="far fa-futbol"></i>
+                {{ category_forum.nameCategory }}</span></h5>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text"><span class="colorUser">{{ category_forum.parent }}</span> Nombre de reponse
+                Derniermessage/par</p>
             </div>
           </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
 
 
 
@@ -43,8 +64,8 @@
 
 
 
-        
-    </section>
+
+  </section>
 </div>
 
 {% endblock %}

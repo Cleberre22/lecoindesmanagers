@@ -70,11 +70,12 @@ class PostForumController extends AbstractController
     {
         $form = $this->createForm(PostForumType::class, $postForum);
         $form->handleRequest($request);
+        $post = $postForum->getId();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('post_forum_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('post_forum_show', ['id'=>$post]);
         }
 
         return $this->renderForm('post_forum/edit.html.twig', [
