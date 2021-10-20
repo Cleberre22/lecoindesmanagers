@@ -42,10 +42,11 @@ class PostForumController extends AbstractController
             $postForum->setCreatedAt(new DateTime());
             $entityManager->persist($postForum);
             $entityManager->flush();
+            $post = $postForum->getId();
 
-            return $this->redirectToRoute('post_forum_index', [], Response::HTTP_SEE_OTHER);
-        }
-
+            return $this->redirectToRoute('post_forum_show', ['id'=>$post]);
+        }                                
+        
         return $this->renderForm('post_forum/new.html.twig', [
             'post_forum' => $postForum,
             'form' => $form,
